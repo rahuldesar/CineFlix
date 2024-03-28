@@ -77,9 +77,11 @@ export function Footer() {
           <FooterLink icon={Icons.GITHUB} href={conf().GITHUB_LINK}>
             {t("footer.links.github")}
           </FooterLink>
-          <FooterLink icon={Icons.DISCORD} href={conf().DISCORD_LINK}>
-            {t("footer.links.discord")}
-          </FooterLink>
+          <div className="hidden">
+            <FooterLink icon={Icons.DISCORD} href={conf().DISCORD_LINK}>
+              {t("footer.links.discord")}
+            </FooterLink>
+          </div>
           <div className="inline md:hidden">
             <Dmca />
           </div>

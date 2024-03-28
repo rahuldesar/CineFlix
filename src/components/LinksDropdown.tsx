@@ -139,12 +139,12 @@ export function LinksDropdown(props: { children: React.ReactNode }) {
           <DropdownLink href="/settings" icon={Icons.SETTINGS}>
             {t("navigation.menu.settings")}
           </DropdownLink>
-          <DropdownLink href="/about" icon={Icons.CIRCLE_QUESTION}>
+          {/* <DropdownLink href="/about" icon={Icons.CIRCLE_QUESTION}>
             {t("navigation.menu.about")}
-          </DropdownLink>
-          <DropdownLink href={conf().DONATION_LINK} icon={Icons.DONATION}>
+          </DropdownLink> */}
+          {/* <DropdownLink href={conf().DONATION_LINK} icon={Icons.DONATION}>
             {t("navigation.menu.donation")}
-          </DropdownLink>
+          </DropdownLink> */}
           {deviceName ? (
             <DropdownLink
               className="!text-type-danger opacity-75 hover:opacity-100"
@@ -155,16 +155,18 @@ export function LinksDropdown(props: { children: React.ReactNode }) {
             </DropdownLink>
           ) : null}
           <Divider />
-          <div className="my-4 flex justify-center items-center gap-4">
+          <div className="my-4 mx-4 flex justify-right  items-center gap-4">
+            <CircleDropdownLink href={conf().GITHUB_LINK} icon={Icons.GITHUB} />
+            {/*
             <CircleDropdownLink
               href={conf().DISCORD_LINK}
               icon={Icons.DISCORD}
             />
-            <CircleDropdownLink href={conf().GITHUB_LINK} icon={Icons.GITHUB} />
             <CircleDropdownLink
               href={conf().DONATION_LINK}
               icon={Icons.DONATION}
             />
+          */}
           </div>
         </div>
       </Transition>

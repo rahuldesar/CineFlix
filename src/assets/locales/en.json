@@ -82,7 +82,7 @@
   "footer": {
     "legal": {
       "disclaimer": "Disclaimer",
-      "disclaimerText": "movie-web does not host any files, it merely links to 3rd party services. Legal issues should be taken up with the file hosts and providers. movie-web is not responsible for any media files shown by the video providers."
+      "disclaimerText": "This is a clone of `movie-web` repo, this site does not host any files, it merely links to 3rd party services. Legal issues should be taken up with the file hosts and providers."
     },
     "links": {
       "discord": "Discord",
@@ -92,13 +92,13 @@
     "tagline": "Watch your favourite shows and movies with this open source streaming app."
   },
   "global": {
-    "name": "movie-web",
+    "name": "CineFlix",
     "pages": {
       "about": "About",
       "dmca": "DMCA",
       "login": "Login",
       "onboarding": "Setup",
-      "pagetitle": "{{title}} - movie-web",
+      "pagetitle": "{{title}} - CineFlix | Rahul Deshar",
       "register": "Register",
       "settings": "Settings"
     }
