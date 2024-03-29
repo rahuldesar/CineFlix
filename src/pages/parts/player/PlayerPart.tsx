@@ -121,7 +121,11 @@ export function PlayerPart(props: PlayerPartProps) {
           <div className="flex justify-center space-x-3">
             {status === playerStatus.PLAYING ? <Player.Pip /> : null}
             <Player.Episodes />
-            {status === playerStatus.PLAYING ? <Player.Settings /> : null}
+            {/* TEST : @Rahul */}
+            {status === playerStatus.PLAYING ||
+            status === playerStatus.PLAYBACK_ERROR ? (
+              <Player.Settings />
+            ) : null}
           </div>
           <div>
             <Player.Fullscreen />
