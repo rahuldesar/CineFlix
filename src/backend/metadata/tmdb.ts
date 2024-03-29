@@ -153,7 +153,6 @@ const headers = {
 
 async function get<T>(url: string, params?: object): Promise<T> {
   if (!apiKey) throw new Error("TMDB API key not set");
-  console.log(headers);
 
   const res = await mwFetch<any>(encodeURI(url), {
     headers,
