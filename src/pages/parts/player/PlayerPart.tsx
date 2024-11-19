@@ -100,22 +100,20 @@ export function PlayerPart(props: PlayerPartProps) {
             <Player.EpisodeTitle />
           </div>
           <div className="hidden sm:flex items-center justify-end">
-            <div className="hidden sm:flex items-center justify-end">
-              {isReferrerChecked && !isPremiumSite ? (
-                isInIframe ? (
-                  <div
-                    onClick={() =>
-                      window.open("https://www.vidbinge.com", "_blank")
-                    }
-                    style={{ cursor: "pointer" }} // Make the cursor a pointer if in iframe
-                  >
-                    <BrandPill clickable />
-                  </div>
-                ) : (
-                  <BrandPill />
-                )
-              ) : null}
-            </div>
+            {isReferrerChecked && !isPremiumSite ? (
+              isInIframe ? (
+                <div
+                  onClick={() =>
+                    window.open("https://www.vidbinge.com", "_blank")
+                  }
+                  style={{ cursor: "pointer" }} // Make the cursor a pointer if in iframe
+                >
+                  <BrandPill clickable />
+                </div>
+              ) : (
+                <BrandPill />
+              )
+            ) : null}
           </div>
           <div className="flex sm:hidden items-center justify-end">
             {status === playerStatus.PLAYING ? (
