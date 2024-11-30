@@ -3,7 +3,9 @@ import {
   BACKEND_URL,
   DISCORD_LINK,
   DONATION_LINK,
+  FACEBOOK_LINK,
   GITHUB_LINK,
+  INSTAGRAM_LINK,
 } from "./constants";
 
 interface Config {
@@ -11,6 +13,9 @@ interface Config {
   GITHUB_LINK: string;
   DONATION_LINK: string;
   DISCORD_LINK: string;
+  FACEBOOK_LINK: string;
+  INSTAGRAM_LINK: string;
+  HLSCONVERTER_URL: string;
   DMCA_EMAIL: string;
   TMDB_READ_API_KEY: string;
   CORS_PROXY_URL: string;
@@ -31,6 +36,9 @@ export interface RuntimeConfig {
   GITHUB_LINK: string;
   DONATION_LINK: string;
   DISCORD_LINK: string;
+  FACEBOOK_LINK: string;
+  INSTAGRAM_LINK: string;
+  HLSCONVERTER_URL: string;
   DMCA_EMAIL: string | null;
   TMDB_READ_API_KEY: string | null;
   NORMAL_ROUTER: boolean;
@@ -52,6 +60,9 @@ const env: Record<keyof Config, undefined | string> = {
   GITHUB_LINK: undefined,
   DONATION_LINK: undefined,
   DISCORD_LINK: undefined,
+  FACEBOOK_LINK: undefined,
+  INSTAGRAM_LINK: undefined,
+  HLSCONVERTER_URL: import.meta.env.VITE_HLSCONVERTER_URL,
   ONBOARDING_CHROME_EXTENSION_INSTALL_LINK: import.meta.env
     .VITE_ONBOARDING_CHROME_EXTENSION_INSTALL_LINK,
   ONBOARDING_FIREFOX_EXTENSION_INSTALL_LINK: import.meta.env
@@ -94,6 +105,12 @@ export function conf(): RuntimeConfig {
     GITHUB_LINK,
     DONATION_LINK,
     DISCORD_LINK,
+    FACEBOOK_LINK,
+    INSTAGRAM_LINK,
+    HLSCONVERTER_URL: getKey(
+      "HLSCONVERTER_URL",
+      "https://hlsdownload.vidbinge.com",
+    ),
     DMCA_EMAIL: getKey("DMCA_EMAIL"),
     ONBOARDING_CHROME_EXTENSION_INSTALL_LINK: getKey(
       "ONBOARDING_CHROME_EXTENSION_INSTALL_LINK",

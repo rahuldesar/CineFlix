@@ -212,9 +212,16 @@ function EpisodesView({
 
   return (
     <Menu.CardWithScrollable>
-      <Menu.BackLink onClick={goBack}>
-        {loadingState?.value?.season.title ||
-          t("player.menus.episodes.loadingTitle")}
+      <Menu.BackLink
+        onClick={goBack}
+        rightSide={
+          <span>
+            {loadingState?.value?.season.title ||
+              t("player.menus.episodes.loadingTitle")}
+          </span>
+        }
+      >
+        {t("player.menus.episodes.seasons")}
       </Menu.BackLink>
       {content}
     </Menu.CardWithScrollable>
@@ -280,19 +287,25 @@ export function Episodes() {
   const { t } = useTranslation();
   const router = useOverlayRouter("episodes");
   const setHasOpenOverlay = usePlayerStore((s) => s.setHasOpenOverlay);
-  const type = usePlayerStore((s) => s.meta?.type);
+  const meta = usePlayerStore((s) => s.meta);
+  const type = meta?.type;
 
   useEffect(() => {
     setHasOpenOverlay(router.isRouterActive);
   }, [setHasOpenOverlay, router.isRouterActive]);
   if (type !== "show") return null;
 
+  const handleButtonClick = () => {
+    // Check if it's Season 1 and not a Miniseries
+    const isSeasonOne = meta?.season?.number === 1;
+    const isNotMiniseries = meta?.season?.title !== "Miniseries";
+    const routePath = isSeasonOne && isNotMiniseries ? "/" : "/episodes";
+    router.open(routePath);
+  };
+
   return (
     <OverlayAnchor id={router.id}>
-      <VideoPlayerButton
-        onClick={() => router.open("/episodes")}
-        icon={Icons.EPISODES}
-      >
+      <VideoPlayerButton onClick={handleButtonClick} icon={Icons.EPISODES}>
         {t("player.menus.episodes.button")}
       </VideoPlayerButton>
     </OverlayAnchor>

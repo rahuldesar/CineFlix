@@ -131,11 +131,14 @@ export function LinksDropdown(props: { children: React.ReactNode }) {
               {decryptData(deviceName, bufferSeed)}
             </DropdownLink>
           ) : (
-            <DropdownLink href="/login" icon={Icons.RISING_STAR} highlight>
+            <DropdownLink href="/login" icon={Icons.CLOUD} highlight>
               {t("navigation.menu.register")}
             </DropdownLink>
           )}
           <Divider />
+          <DropdownLink href="/discover" icon={Icons.COMPASS}>
+            {t("navigation.menu.discover")}
+          </DropdownLink>
           <DropdownLink href="/settings" icon={Icons.SETTINGS}>
             {t("navigation.menu.settings")}
           </DropdownLink>

@@ -1,16 +1,10 @@
-
-<p align="center"><img align="center" width="280" src="./.github/logo-dark.svg#gh-dark-mode-only"/></p>
-<p align="center"><img align="center" width="280" src="./.github/logo-light.svg#gh-light-mode-only"/></p>
 <p align="center">
   <img src="https://skillicons.dev/icons?i=react,vite,ts" />
-  <br/>
-  <a href="https://movie-web.github.io/links/discord"><kbd>🔵 discord</kbd></a> <a href="https://movie-web.github.io/docs"><kbd>🟢 docs</kbd></a>
 </p>
-<br/><br/>
 
-# ⚡What is movie-web?
+This is the source code to VidBinge, allegedly. I do not condone piracy of any kind. I just simply like coding stuff.
 
-movie-web is a web app for watching movies easily.
+# ⚡What is VidBinge?
 
 This service works by displaying video files from third-party providers inside an intuitive and aesthetic user interface.
 
@@ -18,7 +12,7 @@ This service works by displaying video files from third-party providers inside a
 
 - Automatic saving of progress - optionally synced to an account.
 - Bookmark shows or movies, keep track of what you want to watch.
-- Minimalistic interface that only shows whats required - no algorithm to consume you.
+- Minimalistic interface that only shows what's required - no algorithm to consume you.
 
 ## 🍄 Philosophy
 
@@ -32,36 +26,35 @@ Content is fetched from third parties and scraping is fully done on the client. 
 ## ⚠️ Limitations
 
 - Due to being a static site, there can be no SSR
-- To keep it cheap to host, amount of proxied requests need to be kept to a minimum
+- To keep it cheap to host, the amount of proxied requests need to be kept to a minimum
 - Also to keep it cheap, no content must ever be streamed through the proxy. So only streams not protected by CORS headers.
 
 # 🧬 Running locally for development
 
-To run locally, you must first clone the repository. After that run the following commands in the root of the repository:
+To run locally, you must first clone the repository. After that, run the following commands in the root of the repository:
+
 ```bash
 pnpm install
 pnpm run dev
 ```
 
-You have to also make an `.env` file to configure your environment. Inspire it from the content of `example.env`.
+You have to also make an `.env` file to configure your environment. Use `example.env` as a reference.
 
 To build production files, run:
+
 ```bash
 pnpm build
 ```
 
-> [!TIP]
+> **Note**
 > You must use pnpm (`npm i -g pnpm`) and run NodeJS 20
 
-# 🥔 Selfhosting
+# ✉️ Contact
 
-A simple guide has been written to assist in hosting your own instance of movie-web. Check it out below
+[Discord Server](https://discord.gg/4jzBvV8E5r)
 
-|[Selfhosting guide](https://movie-web.github.io/docs)|
-|---|
+[Email](mailto:josh@vidbinge.com)
 
 ## 🤝 Thanks to all Contributors
-This project would not be possible without our amazing contributors and the community. Thanks a lot! Keep rocking 🍻.
 
-[![Contributors](https://contrib.rocks/image?repo=movie-web/movie-web)](https://github.com/movie-web/movie-web/graphs/contributors)
-
+This project would not be possible without our amazing contributors and the community. Thanks a lot! Keep rocking 🍻!

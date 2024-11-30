@@ -12,7 +12,10 @@ import { qualityToString } from "@/stores/player/utils/qualities";
 import { useSubtitleStore } from "@/stores/subtitles";
 import { getPrettyLanguageNameFromLocale } from "@/utils/language";
 
+import { useDownloadLink } from "./Downloads";
+
 export function SettingsMenu({ id }: { id: string }) {
+  const downloadUrl = useDownloadLink();
   const { t } = useTranslation();
   const router = useOverlayRouter(id);
   const currentQuality = usePlayerStore((s) => s.currentQuality);
@@ -32,19 +35,27 @@ export function SettingsMenu({ id }: { id: string }) {
   const { toggleLastUsed } = useCaptions();
 
   const selectedLanguagePretty = selectedCaptionLanguage
-    ? getPrettyLanguageNameFromLocale(selectedCaptionLanguage) ??
-      t("player.menus.subtitles.unknownLanguage")
+    ? (getPrettyLanguageNameFromLocale(selectedCaptionLanguage) ??
+      t("player.menus.subtitles.unknownLanguage"))
     : undefined;
 
   const selectedAudioLanguagePretty = currentAudioTrack
-    ? getPrettyLanguageNameFromLocale(currentAudioTrack.language) ??
-      t("player.menus.subtitles.unknownLanguage")
+    ? (getPrettyLanguageNameFromLocale(currentAudioTrack.language) ??
+      t("player.menus.subtitles.unknownLanguage"))
     : undefined;
 
   const source = usePlayerStore((s) => s.source);
 
   const downloadable = source?.type === "file" || source?.type === "hls";
 
+  const handleWatchPartyClick = () => {
+    if (downloadUrl) {
+      const watchPartyUrl = `https://watchparty.vidbinge.com/create?video=${encodeURIComponent(
+        downloadUrl,
+      )}`;
+      window.open(watchPartyUrl);
+    }
+  };
   return (
     <Menu.Card>
       <Menu.SectionTitle>
@@ -81,6 +92,14 @@ export function SettingsMenu({ id }: { id: string }) {
           className={downloadable ? "opacity-100" : "opacity-50"}
         >
           {t("player.menus.settings.downloadItem")}
+        </Menu.Link>
+        <Menu.Link
+          clickable
+          onClick={handleWatchPartyClick}
+          rightSide={<Icon className="text-xl" icon={Icons.WATCH_PARTY} />}
+          className={downloadable ? "opacity-100" : "opacity-50"}
+        >
+          {t("Watch Party")}
         </Menu.Link>
       </Menu.Section>
 

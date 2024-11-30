@@ -2,13 +2,10 @@ import classNames from "classnames";
 import { Link } from "react-router-dom";
 
 import { NoUserAvatar, UserAvatar } from "@/components/Avatar";
-import { IconPatch } from "@/components/buttons/IconPatch";
-import { Icons } from "@/components/Icon";
 import { LinksDropdown } from "@/components/LinksDropdown";
 import { Lightbar } from "@/components/utils/Lightbar";
 import { useAuth } from "@/hooks/auth/useAuth";
 import { BlurEllipsis } from "@/pages/layouts/SubPageLayout";
-import { conf } from "@/setup/config";
 import { useBannerSize } from "@/stores/banner";
 
 import { BrandPill } from "./BrandPill";
@@ -41,14 +38,14 @@ export function Navigation(props: NavigationProps) {
 
       {/* backgrounds - these are seperate because of z-index issues */}
       <div
-        className="fixed z-[20] pointer-events-none left-0 right-0 top-0 min-h-[150px]"
+        className="top-content fixed z-[20] pointer-events-none left-0 right-0 top-0 min-h-[150px]"
         style={{
           top: `${bannerHeight}px`,
         }}
       >
         <div
           className={classNames(
-            "fixed left-0 right-0 h-20 flex items-center",
+            "fixed left-0 right-0 top-0 flex items-center",
             props.doBackground
               ? "bg-background-main border-b border-utils-divider border-opacity-50"
               : null,
@@ -72,7 +69,7 @@ export function Navigation(props: NavigationProps) {
 
       {/* content */}
       <div
-        className="fixed pointer-events-none left-0 right-0 z-[60] top-0 min-h-[150px]"
+        className="top-content fixed pointer-events-none left-0 right-0 z-[60] top-0 min-h-[150px]"
         style={{
           top: `${bannerHeight}px`,
         }}

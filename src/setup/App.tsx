@@ -15,6 +15,7 @@ import { useOnlineListener } from "@/hooks/usePing";
 import { AboutPage } from "@/pages/About";
 import { AdminPage } from "@/pages/admin/AdminPage";
 import VideoTesterView from "@/pages/developer/VideoTesterView";
+import { Discover } from "@/pages/Discover";
 import { DmcaPage, shouldHaveDmcaPage } from "@/pages/Dmca";
 import { NotFoundPage } from "@/pages/errors/NotFoundPage";
 import { HomePage } from "@/pages/HomePage";
@@ -22,6 +23,7 @@ import { LoginPage } from "@/pages/Login";
 import { OnboardingPage } from "@/pages/onboarding/Onboarding";
 import { OnboardingExtensionPage } from "@/pages/onboarding/OnboardingExtension";
 import { OnboardingProxyPage } from "@/pages/onboarding/OnboardingProxy";
+import { PrivacyPage } from "@/pages/PrivacyPolicy";
 import { RegisterPage } from "@/pages/Register";
 import { Layout } from "@/setup/Layout";
 import { useHistoryListener } from "@/stores/history";
@@ -122,7 +124,9 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/onboarding" element={<OnboardingPage />} />
+        <Route path="/discover" element={<Discover />} />
         <Route
           path="/onboarding/extension"
           element={<OnboardingExtensionPage />}
@@ -132,7 +136,6 @@ function App() {
         {shouldHaveDmcaPage() ? (
           <Route path="/dmca" element={<DmcaPage />} />
         ) : null}
-
         {/* Settings page */}
         <Route
           path="/settings"
@@ -144,7 +147,7 @@ function App() {
         />
 
         {/* admin routes */}
-        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/admininfo" element={<AdminPage />} />
 
         {/* other */}
         <Route path="/dev" element={<DeveloperPage />} />

@@ -91,7 +91,7 @@ function VideoElement() {
   if (captionAsTrack && trackObjectUrl && language)
     subtitleTrack = (
       <track
-        label="movie-web"
+        label={language}
         kind="subtitles"
         srcLang={language}
         src={trackObjectUrl}
@@ -101,6 +101,7 @@ function VideoElement() {
 
   return (
     <video
+      id="video-element"
       className="absolute inset-0 w-full h-screen bg-black"
       autoPlay
       playsInline
