@@ -1,7 +1,7 @@
 export const APP_VERSION = import.meta.env.PACKAGE_VERSION;
 
 export const DISCORD_LINK = "https://discord.gg/3Y6zrJ2kXU";
-export const GITHUB_LINK = "https://github.com/movie-web/movie-web";
+export const GITHUB_LINK = "https://github.com/404";
 export const DONATION_LINK = "https://ko-fi.com/vidbinge";
 export const FACEBOOK_LINK = "https://facebook.com/vidbinge";
 export const INSTAGRAM_LINK = "https://instagram.com/vidbinge";
